@@ -1,0 +1,47 @@
+version: "3.2"
+services:
+  service_burking_app:
+    build: ./app
+    image: amakundu/nodejs-mysql-app
+    env_file: ./app/.env
+    networks:
+      - frontend
+      - backend
+    volumes:
+      - ./app/:/dev_app
+      - /dev_app/node_modules
+    ports:
+      - "7300:8005"
+    container_name: container-burking-app
+  service_burking_db:
+    image: mysql:latest
+    hostname: burking
+    cap_add:
+      - SYS_NICE  
+    env_file: ./app/.env
+    networks:
+      - backend
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "7310:3306"
+    container_name: container-burking-db
+  service_burking_admin:
+    image: phpmyadmin/phpmyadmin:latest
+    depends_on:
+      - service_burking_db
+    networks:
+      - backend
+    ports:
+      - "7320:80"
+    environment:
+        MYSQL_USERNAME: root
+        MYSQL_ROOT_PASSWORD: root
+        PMA_HOST: service_burking_db
+    volumes:
+      - /sessions
+    container_name: container-burking-admin
+networks:
+  frontend:
+  backend:
