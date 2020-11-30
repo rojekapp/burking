@@ -1,0 +1,8 @@
+.btn {
+  &.btn-burjo-king {
+    border-radius: 50%;
+    // background: linear-gradient(to right top, $grey 40%, lighten($grey, 20%) 60%);
+    background: rgba($grey, 0.2);
+    color: white;
+  }
+}

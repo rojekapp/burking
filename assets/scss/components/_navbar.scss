@@ -1,0 +1,28 @@
+.navbar {
+  box-shadow: 0 1px 5px $grey;
+  // z-index: 9999;
+
+  &.bg-burjo-king {
+    background: $light-aqua;
+
+    .navbar-brand, .nav-link {
+      color: $grey;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+    }
+
+    .nav-link {
+      transition: all 0.3s ease-in-out;
+
+      &.disabled {
+        color: lighten($grey, 20%);
+      }
+
+      &:hover {
+        color: darken($grey, 20%);
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.title {
+  font-weight: 700;
+  font-size: 2.5rem;
+  width: fit-content;
+
+  &:after {
+    content: ""; 
+    display: block; 
+    width: 80%;
+    margin: 8px auto; 
+    border-bottom: 5px solid $orange;
+    transition: all 0.15s ease-in;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+}
+
+.sub-title {
+  
+}
