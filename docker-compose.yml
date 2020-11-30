@@ -15,7 +15,7 @@ services:
     container_name: container-burking-app
   service_burking_db:
     image: mysql:latest
-    hostname: burking
+    hostname: service_burking_db
     cap_add:
       - SYS_NICE  
     env_file: ./app/.env

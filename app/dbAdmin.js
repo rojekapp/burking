@@ -12,7 +12,7 @@ const user = process.env.MYSQL_USER || 'root';
 const password = process.env.MYSQL_PASS || '';
 
 // Get the Database from Environment or use default
-const database = process.env.ADMIN_DB || 'admin';
+const database = process.env.ADMIN_DB || 'burking';
 
 
 module.exports = { host, user, password, database};

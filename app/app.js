@@ -12,9 +12,10 @@ var cors = require('cors')
 const dbConfig = require('./dbConfig');
 const adminConfig = require('./dbAdmin');
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var tenantRouter = require('./routes/tenant.js');
-var cashierRouter = require('./routes/cashier.js');
+var userRouter = require('./routes/user');
+var pesanRouter = require('./routes/pesan');
+var cartRouter = require('./routes/cart');
+var menuRouter = require('./routes/menu');
 var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 require('dotenv').config()
@@ -35,10 +36,10 @@ app.use(cors())
 /*uploads */
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
-     let id_tim = req.body.id_tim;
-     let paket_soal = req.body.paket_soal;
-      fs.mkdirsSync('./public/uploads/'+id_tim+'/'+paket_soal);
-        cb(null, './public/uploads/'+id_tim+"/"+paket_soal);
+     
+     
+      fs.mkdirsSync('../public/uploads/menu');
+        cb(null, '../public/uploads/menu');
     },
     filename: (req, file, cb) => {
         const fileName = file.originalname.toLowerCase().split(' ').join('-');
@@ -90,9 +91,9 @@ const query = require('./helpers/query')
 
 app.get('/test', async (req, res) => {
   const connectiond = mysql.createConnection({
-    host: process.env.MYSQL_HOST || 'localhost',
+    host: process.env.MYSQL_HOST || 'service_burking_db',
     user: process.env.MYSQL_USER || 'root',
-    password: process.env.MYSQL_PASSWORD || ''
+    password: process.env.MYSQL_PASS || 'root'
   });
   connectiond.connect((err) => {
     if (err) {
@@ -108,9 +109,10 @@ app.get('/cek', async (req, res) => {
 })
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/tenant', tenantRouter);
-app.use('/cashier', cashierRouter);
+app.use('/menu', menuRouter);
+app.use('/cart', cartRouter);
+app.use('/user', userRouter);
+app.use('/pesan', pesanRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
