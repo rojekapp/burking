@@ -43,9 +43,12 @@
     <b-row class="mb-4">
       <b-col>
         <b-card>
-          <h5>
-            <i class="fa fa-book mr-2"></i> Daftar Makanan Burjo King
+          <h5 class="mb-4">
+            <i class="fa fa-book mr-2"></i> Daftar Menu Burjo King
           </h5>
+          
+          <p><strong>Makanan:</strong></p>
+          <TableFood />
         </b-card>
       </b-col>
     </b-row>
@@ -54,6 +57,8 @@
     <ModalFood />
 
     <ModalDrink />
+
+    <ModalMenuPicture />
     <!-- End of modals -->
   </div>  
 </template>
@@ -62,18 +67,9 @@
   export default {
     data() {
       return {
-        food: {
-          nama: '',
-          kategori: 'makanan',
-          harga: '',
-          foto: ''
-        },
 
-        
       }
     },
-
-    
   }
 </script>
 

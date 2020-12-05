@@ -6,7 +6,7 @@
     background: $light-aqua;
 
     .navbar-brand, .nav-link {
-      color: inherit;
+      color: darken($grey, 8%);
     }
 
     .navbar-brand {
