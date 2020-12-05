@@ -1,16 +1,20 @@
 <template>
   <b-sidebar id="sidebar-admin" title="Admin Burjo King" backdrop-variant="dark" backdrop shadow>
     <div class="px-3 py-2">
-      <nuxt-link v-for="navigation in navigations" :key="navigation.id" :to="navigation.link">
-        <b-row>
-          <b-col cols="1">
-            <i :class="navigation.icon"></i>
-          </b-col>
-          <b-col>
-            {{ navigation.page }}
-          </b-col>
-        </b-row>
-      </nuxt-link>
+      <ul class="pl-2">
+        <li v-for="navigation in navigations" :key="navigation.id">
+          <nuxt-link :to="navigation.link">
+            <b-row>
+              <b-col cols="1">
+                <i :class="navigation.icon"></i>
+              </b-col>
+              <b-col>
+                {{ navigation.page }}
+              </b-col>
+            </b-row>
+          </nuxt-link>
+        </li>
+      </ul>
     </div>
   </b-sidebar>
 </template>

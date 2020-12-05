@@ -9,6 +9,10 @@
     }
   }
 
+  li {
+    list-style-type: none;
+  }
+
   .nuxt-link-active {
     display: block;
     margin: 0.5rem 0;
