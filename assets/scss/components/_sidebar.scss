@@ -1,6 +1,6 @@
 .b-sidebar {
   &.bg-grey {
-    background: $grey;
+    background: darken($grey, 8%);
     color: $light-aqua !important;
   }
 
