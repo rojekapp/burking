@@ -1,9 +1,9 @@
 <template>
-  <b-sidebar id="sidebar-admin" title="Admin Burjo King" backdrop-variant="dark" backdrop shadow>
-    <div class="px-3 py-2">
-      <ul class="pl-2">
+  <b-sidebar id="sidebar-admin" title="Admin Burjo King" bg-variant="grey" backdrop-variant="dark" backdrop shadow>
+    <div class="py-2">
+      <ul class="pl-0">
         <li v-for="navigation in navigations" :key="navigation.id">
-          <nuxt-link :to="navigation.link">
+          <nuxt-link :to="navigation.link" :class="navigation.id == 1 ? 'active': ''">
             <b-row>
               <b-col cols="1">
                 <i :class="navigation.icon"></i>

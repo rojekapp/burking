@@ -1,0 +1,11 @@
+.modal-content {
+  border-radius: 0.8rem;
+
+  div[class*="col-"] {
+    margin: 0.35rem 0;
+  }
+
+  .modal-footer {
+    display: none;
+  }
+}

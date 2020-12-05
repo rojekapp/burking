@@ -1,8 +1,23 @@
 .btn {
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-weight: 500;
+
   &.btn-burjo-king {
-    border-radius: 50%;
+    // border-radius: 50%;
     // background: linear-gradient(to right top, $grey 40%, lighten($grey, 20%) 60%);
     background: rgba($grey, 0.2);
     color: white;
+  }
+
+  &.btn-primary {
+    background: $light-orange;
+    border-color: $light-orange;
+
+    &:hover {
+      background: $orange;
+      border-color: $orange;
+    }
   }
 }

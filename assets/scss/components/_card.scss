@@ -1,8 +1,45 @@
 .card {
   border-radius: 0.8rem;
   border: 3px solid lighten($light-aqua, 10%);
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   .card-body {
     padding: 1.5rem;
+  }
+
+  &.add-menu {
+    font-weight: 600;
+    border-color: white;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    .title {
+      font-size: 1.75rem;
+      font-weight: bold;
+    }
+
+    i[class*="fa"] {
+      font-size: 3.5rem;
+      margin: 0 auto;
+    }
+  }
+  
+  &#food {
+    &__click {
+      background: linear-gradient(to right top, $light-aqua, darken($light-aqua, 20%));
+    }
+  }
+
+  &#drink {
+    &__click {
+      background: linear-gradient(to left top, $light-orange, $orange);
+    }
   }
 }

@@ -1,11 +1,17 @@
 .b-sidebar {
+  &.bg-grey {
+    background: $grey;
+    color: $light-aqua !important;
+  }
+
   .b-sidebar-header {
-    border-bottom: 2px solid $grey;
+    border-bottom: 2px solid $light-aqua;
 
     .close {
       border-radius: 50%;
       padding: 0.25rem;
-      background: rgba($grey, 0.2);
+      background: rgba(250, 243, 221, 0.6);
+      transition: all 0.3s linear;
     }
   }
 
@@ -15,14 +21,21 @@
 
   .nuxt-link-active {
     display: block;
-    margin: 0.5rem 0;
-    color: $light-orange;
+    color: rgba(250, 243, 221, 0.6);
     font-weight: 600;
-    transition: all 0.3s ease-in;
+    border-radius: 0.8rem;
+    margin: 0.65rem 1rem;
+    padding: 0.25rem 1rem;
+    transition: all 0.3s linear;
+    
+    &.active {
+      color: $light-aqua;
+    }
 
     &:hover {
       text-decoration: none;
-      color: darken($orange, 15%);
+      background: $light-aqua;
+      color: $grey;
     }
   }
 }
