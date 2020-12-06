@@ -29,7 +29,7 @@
                 <label for="drink__foto">Foto :</label>
               </b-col>
               <b-col cols="9">
-                <b-form-file accept="image/*" id="drink__foto" v-model="drink.foto" plain></b-form-file>
+                <b-form-file accept="image/*" id="drink__foto" v-model="drink.file" plain></b-form-file>
               </b-col>
 
               <b-col class="mt-3 text-center">
@@ -109,6 +109,10 @@
 
           console.error(err)
         });
+
+        this.drink.nama = '';
+        this.drink.harga = '';
+        this.drink.file = null;
 
         this.$bvModal.hide('modal-add-drink');
       }

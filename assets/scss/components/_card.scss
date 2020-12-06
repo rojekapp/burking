@@ -10,7 +10,7 @@
   &.add-menu {
     font-weight: 600;
     margin: 1rem 0;
-    border-color: white;
+    border-color: lighten($light-aqua, 20%);;
     cursor: pointer;
 
     &:hover {
@@ -41,6 +41,12 @@
   &#drink {
     &__click {
       background: linear-gradient(to left top, $light-orange, $orange);
+    }
+  }
+
+  &#message {
+    &__click {
+      background: linear-gradient(to right top, $light-green, $light-soft);
     }
   }
 }

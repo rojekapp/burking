@@ -32,9 +32,9 @@
           },
           {
             id: 2,
-            link: '/pesanan',
-            icon: 'fa fa-book',
-            page: 'Daftar Pesanan'
+            link: '/notification',
+            icon: 'fa fa-bell',
+            page: 'Promo User'
           },
         ]
       }

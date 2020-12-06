@@ -35,8 +35,8 @@
 
     methods: {
       modalMenu(data) {
-        this.$store.commit('menu/updateName', data.item.nama)
-        this.$store.commit('menu/updateUrl', data.item.foto)
+        this.$store.commit('menuModal/updateName', data.item.nama)
+        this.$store.commit('menuModal/updateUrl', data.item.foto)
 
         this.$bvModal.show('modal-menu-picture');
       }

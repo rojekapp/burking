@@ -110,6 +110,10 @@
           console.error(err)
         });
 
+        this.food.nama = '';
+        this.food.harga = '';
+        this.food.file = null;
+        
         this.$bvModal.hide('modal-add-food');
       }
     }
