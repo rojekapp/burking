@@ -1,5 +1,13 @@
 <template>
   <b-table hover :items="items" :fields="fields">
+    <template #cell(nama)="data">
+      {{ data.item.nama | capitalizeFirstLetterOfEachWord }}
+    </template>
+
+    <template #cell(harga)="data">
+      {{ data.item.harga | currencyIndonesiaFormat }}
+    </template>
+
     <template #cell(foto)="data">
       <i @click="modalMenu(data)" class="fa fa-external-link-alt"></i>
     </template>
@@ -14,18 +22,12 @@
     data() {
       return {
         fields: [
-          // { key: 'id', label: 'Nomor', sortable: true },
-          { key: 'nama_minuman', sortable: true },
+          { key: 'nama', sortable: true },
           { key: 'harga', sortable: true },
           { key: 'foto', sortable: false },
         ],
 
         items: []
-        // items: [
-        //   { id: 1, nama_minuman: 'test', harga: 'Rp220', foto: '45.76.159.159:7300/uploads/menu/bakmi_goreng.jpg' },
-        //   { id: 2, nama_minuman: 'test2', harga: 'Rp12', foto: 'b' },
-        //   { id: 3, nama_minuman: 'testketiga', harga: 'Rp2444', foto: 'c' }
-        // ]
       }
     },
 
@@ -33,7 +35,7 @@
 
     methods: {
       modalMenu(data) {
-        this.$store.commit('menu/updateName', data.item.nama_minuman)
+        this.$store.commit('menu/updateName', data.item.nama)
         this.$store.commit('menu/updateUrl', data.item.foto)
 
         this.$bvModal.show('modal-menu-picture');
@@ -41,7 +43,7 @@
 
       async asyncDataMenu() {
         const { data } = await axios.post('http://45.76.159.159:7300/menu/list');
-        this.items = data;
+        this.items = data.minuman;
       },
     },
 

@@ -3,7 +3,7 @@
     <b-container fluid>
       <b-row class="mb-2">
         <b-col class="text-center">
-          <h5 id="menu__name" class="text-left">{{ this.$store.state.menu.name }}</h5>
+          <h5 id="menu__name" class="text-left">{{ this.$store.state.menu.name | capitalizeFirstLetterOfEachWord }}</h5>
 
           <img :src="'http://' + this.$store.state.menu.picture_url" alt="Menu Image" class="mt-3 mb-4 img-fluid">
         </b-col>

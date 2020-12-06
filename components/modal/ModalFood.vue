@@ -15,14 +15,14 @@
                 <label for="food__nama">Nama :</label>
               </b-col>
               <b-col cols="9">
-                <b-form-input id="food__nama" v-model="food.nama" type="text" required placeholder="Masukkan nama makanan . . ."></b-form-input>
+                <b-form-input id="food__nama" v-model="food.nama" type="text" required placeholder="contoh: Nasi Gila"></b-form-input>
               </b-col>
 
               <b-col cols="3" class="label-container">
-                <label for="food__harga">Makanan :</label>
+                <label for="food__harga">Harga :</label>
               </b-col>
               <b-col cols="9">
-                <b-form-input id="food__harga" v-model="food.harga" type="text" required placeholder="Masukkan harga makanan . . ."></b-form-input>
+                <b-form-input id="food__harga" v-model="food.harga" type="number" min="0" required placeholder="contoh: 200000"></b-form-input>
               </b-col>
               
               <b-col cols="3" class="label-container">

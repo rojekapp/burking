@@ -11,6 +11,8 @@
 
   tr {
     td {
+      font-weight: 500;
+
       .fa {
         color: darken($light-aqua, 10%);
         cursor: pointer;

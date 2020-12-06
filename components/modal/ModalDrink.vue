@@ -15,14 +15,14 @@
                 <label for="drink__nama">Nama :</label>
               </b-col>
               <b-col cols="9">
-                <b-form-input id="drink__nama" v-model="drink.nama" type="text" required placeholder="Masukkan nama minuman . . ."></b-form-input>
+                <b-form-input id="drink__nama" v-model="drink.nama" type="text" required placeholder="contoh: Soda Gembira"></b-form-input>
               </b-col>
 
               <b-col cols="3" class="label-container">
-                <label for="drink__harga">Minuman :</label>
+                <label for="drink__harga">Harga :</label>
               </b-col>
               <b-col cols="9">
-                <b-form-input id="drink__harga" v-model="drink.harga" type="text" required placeholder="Masukkan harga minuman . . ."></b-form-input>
+                <b-form-input id="drink__harga" v-model="drink.harga" type="number" min="0" required placeholder="contoh: 15000"></b-form-input>
               </b-col>
               
               <b-col cols="3" class="label-container">
