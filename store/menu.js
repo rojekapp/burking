@@ -1,5 +1,5 @@
 export const state = () => ({
-  name: 'chec',
+  name: '',
   picture_url: ''
 });
 

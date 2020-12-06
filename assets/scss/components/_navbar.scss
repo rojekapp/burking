@@ -4,25 +4,31 @@
 
   &.bg-burjo-king {
     background: $light-aqua;
+  }
 
-    .navbar-brand, .nav-link {
-      color: darken($grey, 8%);
+  .navbar-brand, .nav-link {
+    color: darken($grey, 8%);
+  }
+
+  .navbar-nav {
+    .img-fluid {
+      max-width: 3rem;
+    }
+  }
+
+  .navbar-brand {
+    font-weight: bold;
+  }
+
+  .nav-link {
+    transition: all 0.3s ease-in-out;
+
+    &.disabled {
+      color: lighten($grey, 20%);
     }
 
-    .navbar-brand {
-      font-weight: bold;
-    }
-
-    .nav-link {
-      transition: all 0.3s ease-in-out;
-
-      &.disabled {
-        color: lighten($grey, 20%);
-      }
-
-      &:hover {
-        color: darken($grey, 20%);
-      }
+    &:hover {
+      color: darken($grey, 20%);
     }
   }
 }

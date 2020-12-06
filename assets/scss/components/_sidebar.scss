@@ -28,7 +28,7 @@
     padding: 0.25rem 1rem;
     transition: all 0.3s linear;
     
-    &.active {
+    &.nuxt-link-exact-active {
       color: $light-aqua;
     }
 

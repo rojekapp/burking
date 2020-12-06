@@ -49,6 +49,9 @@
           
           <p><strong>Makanan:</strong></p>
           <TableFood />
+          <br>
+          <p><strong>Minuman:</strong></p>
+          <TableDrink />
         </b-card>
       </b-col>
     </b-row>

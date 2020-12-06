@@ -8,7 +8,9 @@
       <!-- End of sidebar toggle -->
 
       <b-navbar-nav class="ml-auto">
-        <b-navbar-brand href="#">Burjo King</b-navbar-brand>
+        <nuxt-link to="/">
+          <img src="~assets/img/logo.png" alt="Burjo King" class="img-fluid">
+        </nuxt-link>
       </b-navbar-nav>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

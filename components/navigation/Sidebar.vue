@@ -3,7 +3,7 @@
     <div class="py-2">
       <ul class="pl-0">
         <li v-for="navigation in navigations" :key="navigation.id">
-          <nuxt-link :to="navigation.link" :class="navigation.id == 1 ? 'active': ''">
+          <nuxt-link :to="navigation.link" class="nuxt-link-active">
             <b-row>
               <b-col cols="1">
                 <i :class="navigation.icon"></i>
@@ -32,13 +32,13 @@
           },
           {
             id: 2,
-            link: '/',
+            link: '/pesanan',
             icon: 'fa fa-book',
-            page: 'Daftar Menu'
+            page: 'Daftar Pesanan'
           },
           {
             id: 3,
-            link: '/',
+            link: '/user',
             icon: 'fa fa-user',
             page: 'User'
           }

@@ -15,16 +15,16 @@
       return {
         fields: [
           // { key: 'id', label: 'Nomor', sortable: true },
-          { key: 'nama_makanan', sortable: true },
+          { key: 'nama_minuman', sortable: true },
           { key: 'harga', sortable: true },
           { key: 'foto', sortable: false },
         ],
 
         items: []
         // items: [
-        //   { id: 1, nama_makanan: 'test', harga: 'Rp220', foto: '45.76.159.159:7300/uploads/menu/bakmi_goreng.jpg' },
-        //   { id: 2, nama_makanan: 'test2', harga: 'Rp12', foto: 'b' },
-        //   { id: 3, nama_makanan: 'testketiga', harga: 'Rp2444', foto: 'c' }
+        //   { id: 1, nama_minuman: 'test', harga: 'Rp220', foto: '45.76.159.159:7300/uploads/menu/bakmi_goreng.jpg' },
+        //   { id: 2, nama_minuman: 'test2', harga: 'Rp12', foto: 'b' },
+        //   { id: 3, nama_minuman: 'testketiga', harga: 'Rp2444', foto: 'c' }
         // ]
       }
     },
@@ -33,7 +33,7 @@
 
     methods: {
       modalMenu(data) {
-        this.$store.commit('menu/updateName', data.item.nama_makanan)
+        this.$store.commit('menu/updateName', data.item.nama_minuman)
         this.$store.commit('menu/updateUrl', data.item.foto)
 
         this.$bvModal.show('modal-menu-picture');
@@ -47,7 +47,7 @@
 
     mounted() {
       this.asyncDataMenu().then(() => {
-        console.log(this.items.makanan[0].nama)
+        console.log(this.items.minuman[0].nama)
       });
 
       // axios.post('http://45.76.159.159:7300/menu/list').then(() => {

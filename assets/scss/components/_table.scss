@@ -1,8 +1,26 @@
 .table {
-  td {
-    .fa {
-      color: darken($light-aqua, 20%);
-      cursor: pointer;
+  tbody {
+    tr {
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+      &:hover {
+        background-color: lighten($light-aqua, 15%);
+      }
     }
   }
+
+  tr {
+    td {
+      .fa {
+        color: darken($light-aqua, 10%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+  
+        &:hover {
+          color: darken($light-aqua, 20%);
+        }
+      }
+    }
+  }
+
 }
