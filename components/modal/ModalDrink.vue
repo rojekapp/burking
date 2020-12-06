@@ -15,7 +15,7 @@
                 <label for="drink__nama">Nama :</label>
               </b-col>
               <b-col cols="9">
-                <b-form-input id="drink__nama" v-model="drink.nama" type="text" required placeholder="contoh: Soda Gembira"></b-form-input>
+                <b-form-input id="drink__nama" v-model="drink.nama" type="text" required placeholder="contoh: soda gembira"></b-form-input>
               </b-col>
 
               <b-col cols="3" class="label-container">

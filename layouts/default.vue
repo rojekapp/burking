@@ -15,12 +15,15 @@
         <Nuxt />
       </b-container>
     </section>
+
+    <Loader />
   </div>  
 </template>
 
 <script>
   import Navbar from '~/components/navigation/Navbar.vue';
   import Sidebar from '~/components/navigation/Sidebar.vue';
+  import Loader from '~/components/Loader.vue';
 
   export default {
     

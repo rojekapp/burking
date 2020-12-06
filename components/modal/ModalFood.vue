@@ -15,7 +15,7 @@
                 <label for="food__nama">Nama :</label>
               </b-col>
               <b-col cols="9">
-                <b-form-input id="food__nama" v-model="food.nama" type="text" required placeholder="contoh: Nasi Gila"></b-form-input>
+                <b-form-input id="food__nama" v-model="food.nama" type="text" required placeholder="contoh: nasi gila"></b-form-input>
               </b-col>
 
               <b-col cols="3" class="label-container">
@@ -29,7 +29,7 @@
                 <label for="food__foto">Foto :</label>
               </b-col>
               <b-col cols="9">
-                <b-form-file accept="image/*" id="food__foto" v-model="food.foto" plain></b-form-file>
+                <b-form-file accept="image/*" id="food__foto" v-model="food.file" plain></b-form-file>
               </b-col>
 
               <b-col class="mt-3 text-center">
@@ -44,6 +44,10 @@
 </template>
 
 <script>
+  import axios from 'axios';
+  const FormData = require('form-data');
+  const fs = require('fs');
+
   export default {
     data() {
       return {
@@ -51,15 +55,42 @@
           nama: '',
           kategori: 'makanan',
           harga: '',
-          foto: null
+          file: null
         }
       }
     },
 
     methods: {
-      addFood(e) {
-        e.preventDefault();
+      addFood(evt) {
+        evt.preventDefault();
 
+        this.$nextTick(() => {
+          this.$nuxt.$loading.start()
+        });
+
+        var file_name = this.food.file.name;
+
+        var data_menu = new FormData();
+        data_menu.append('nama', this.food.nama);
+        data_menu.append('kategori', this.food.kategori);
+        data_menu.append('harga', this.food.harga);
+        data_menu.append('file', this.food.file, file_name);
+
+        axios({
+          method: 'post',
+          url: 'http://45.76.159.159:7300/menu/add',
+          headers: {
+            key: '',
+          },
+          data: data_menu
+        }).then((response) => {
+          this.$nextTick(() => {
+            setTimeout(() => this.$nuxt.$loading.finish(), 500);
+          });
+          console.log('Success adding menu')
+        }).catch((err) => {
+          console.error(err)
+        });
       }
     }
   }

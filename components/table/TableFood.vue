@@ -1,5 +1,9 @@
 <template>
   <b-table hover :items="items" :fields="fields">
+    <template #cell(index)="data">
+      {{ data.index + 1 }}.
+    </template>
+
     <template #cell(nama)="data">
       {{ data.item.nama | capitalizeFirstLetterOfEachWord }}
     </template>
@@ -22,6 +26,7 @@
     data() {
       return {
         fields: [
+          { key: 'index', label: 'No.' },
           { key: 'nama', sortable: true },
           { key: 'harga', sortable: true },
           { key: 'foto', sortable: false },
@@ -30,8 +35,6 @@
         items: []
       }
     },
-
-    
 
     methods: {
       modalMenu(data) {
@@ -48,14 +51,7 @@
     },
 
     mounted() {
-      this.asyncDataMenu().then(() => {
-        console.log(this.items.nama)
-        console.log(this.items)
-      });
-
-      // axios.post('http://45.76.159.159:7300/menu/list').then(() => {
-      //   alert('sukses')
-      // })
+      this.asyncDataMenu()
     }
   }
 </script>
