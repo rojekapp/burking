@@ -1,5 +1,5 @@
 <template>
-  <b-table hover :items="items" :fields="fields">
+  <b-table hover :items="this.$store.state.menus.drink_list" :fields="fields">
     <template #cell(index)="data">
       {{ data.index + 1 }}.
     </template>
@@ -20,7 +20,6 @@
 
 <script>
   import { mapMutations } from 'vuex';
-  import axios from 'axios';
 
   export default {
     data() {
@@ -30,9 +29,7 @@
           { key: 'nama', sortable: true },
           { key: 'harga', sortable: true },
           { key: 'foto', sortable: false },
-        ],
-
-        items: []
+        ]
       }
     },
 
@@ -42,17 +39,11 @@
         this.$store.commit('menu/updateUrl', data.item.foto)
 
         this.$bvModal.show('modal-menu-picture');
-      },
-
-      async asyncDataMenu() {
-        const { data } = await axios.post('http://45.76.159.159:7300/menu/list');
-        this.items = data.minuman;
-      },
+      }
     },
 
     mounted() {
-      this.asyncDataMenu()
-
+      this.$store.commit('menus/fetchMenu');
     }
   }
 </script>

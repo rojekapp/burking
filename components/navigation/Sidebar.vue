@@ -36,12 +36,6 @@
             icon: 'fa fa-book',
             page: 'Daftar Pesanan'
           },
-          {
-            id: 3,
-            link: '/user',
-            icon: 'fa fa-user',
-            page: 'User'
-          }
         ]
       }
     }

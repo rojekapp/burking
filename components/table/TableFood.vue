@@ -1,5 +1,5 @@
 <template>
-  <b-table hover :items="items" :fields="fields">
+  <b-table hover :items="this.$store.state.menus.food_list" :fields="fields">
     <template #cell(index)="data">
       {{ data.index + 1 }}.
     </template>
@@ -20,7 +20,6 @@
 
 <script>
   import { mapMutations } from 'vuex';
-  import axios from 'axios';
 
   export default {
     data() {
@@ -30,28 +29,21 @@
           { key: 'nama', sortable: true },
           { key: 'harga', sortable: true },
           { key: 'foto', sortable: false },
-        ],
-
-        items: []
+        ]
       }
     },
 
     methods: {
       modalMenu(data) {
-        this.$store.commit('menu/updateName', data.item.nama)
-        this.$store.commit('menu/updateUrl', data.item.foto)
+        this.$store.commit('menuModal/updateName', data.item.nama)
+        this.$store.commit('menuModal/updateUrl', data.item.foto)
 
         this.$bvModal.show('modal-menu-picture');
-      },
-
-      async asyncDataMenu() {
-        const { data } = await axios.post('http://45.76.159.159:7300/menu/list');
-        this.items = data.makanan;
-      },
+      }
     },
 
     mounted() {
-      this.asyncDataMenu()
+      this.$store.commit('menus/fetchMenu');
     }
   }
 </script>

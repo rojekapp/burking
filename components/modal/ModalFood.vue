@@ -45,6 +45,8 @@
 
 <script>
   import axios from 'axios';
+  import swal from 'sweetalert';
+
   const FormData = require('form-data');
   const fs = require('fs');
 
@@ -87,10 +89,28 @@
           this.$nextTick(() => {
             setTimeout(() => this.$nuxt.$loading.finish(), 500);
           });
-          console.log('Success adding menu')
+
+          swal('Menu berhasil ditambahkan!', 'Menu yang Anda masukkan telah ditambahkan pada database', 'success', {
+            button: false,
+            timer: 2500
+          });
+          
+          console.log('Success adding menu');
+          this.$store.commit('menus/fetchMenu');
         }).catch((err) => {
+          this.$nextTick(() => {
+            setTimeout(() => this.$nuxt.$loading.finish(), 500);
+          });
+
+          swal('Menu gagal ditambahkan', 'Maaf, terdapat error sehingga menu tidak bisa ditambahkan. Mohon coba beberapa saat lagi', 'error', {
+            button: false,
+            timer: 2500
+          });
+
           console.error(err)
         });
+
+        this.$bvModal.hide('modal-add-food');
       }
     }
   }

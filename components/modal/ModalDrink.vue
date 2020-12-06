@@ -44,6 +44,12 @@
 </template>
 
 <script>
+  import axios from 'axios';
+  import swal from 'sweetalert';
+
+  const FormData = require('form-data');
+  const fs = require('fs');
+
   export default {
     data() {
       return {
@@ -51,15 +57,60 @@
           nama: '',
           kategori: 'minuman',
           harga: '',
-          foto: null
+          file: null
         }
       }
     },
 
     methods: {
-      addDrink(e) {
-        e.preventDefault();
+      addDrink(evt) {
+        evt.preventDefault();
 
+        this.$nextTick(() => {
+          this.$nuxt.$loading.start()
+        });
+
+        var file_name = this.drink.file.name;
+
+        var data_menu = new FormData();
+        data_menu.append('nama', this.drink.nama);
+        data_menu.append('kategori', this.drink.kategori);
+        data_menu.append('harga', this.drink.harga);
+        data_menu.append('file', this.drink.file, file_name);
+
+        axios({
+          method: 'post',
+          url: 'http://45.76.159.159:7300/menu/add',
+          headers: {
+            key: '',
+          },
+          data: data_menu
+        }).then((response) => {
+          this.$nextTick(() => {
+            setTimeout(() => this.$nuxt.$loading.finish(), 500);
+          });
+
+          swal('Menu berhasil ditambahkan!', 'Menu yang Anda masukkan telah ditambahkan pada database', 'success', {
+            button: false,
+            timer: 2500
+          });
+          
+          console.log('Success adding menu');
+          this.$store.commit('menus/fetchMenu');
+        }).catch((err) => {
+          this.$nextTick(() => {
+            setTimeout(() => this.$nuxt.$loading.finish(), 500);
+          });
+
+          swal('Menu gagal ditambahkan', 'Maaf, terdapat error sehingga menu tidak bisa ditambahkan. Mohon coba beberapa saat lagi', 'error', {
+            button: false,
+            timer: 2500
+          });
+
+          console.error(err)
+        });
+
+        this.$bvModal.hide('modal-add-drink');
       }
     }
   }
